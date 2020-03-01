@@ -1,10 +1,9 @@
 'use strict';
 
+const axios = require("axios")
+
 const triggerBuild = () => {
-  fetch(strapi.config.gatsbyTriggerBuildURL, {
-    method: "POST",
-    body: {}
-  })
+  axios.post(strapi.config.gatsbyTriggerBuildURL, {})
 }
 
 /**
