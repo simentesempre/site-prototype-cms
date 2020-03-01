@@ -1,5 +1,12 @@
 'use strict';
 
+const triggerBuild = () => {
+  fetch(strapi.config.gatsbyTriggerBuildURL, {
+    method: "POST",
+    body: {}
+  })
+}
+
 /**
  * Lifecycle callbacks for the `post` model.
  */
@@ -37,6 +44,8 @@ module.exports = {
   // Fired after an `insert` query.
   // afterCreate: async (model, attrs, options) => {},
 
+  afterCreate: async (model, attrs, options) => { triggerBuild() },
+
   // Before updating a value.
   // Fired before an `update` query.
   // beforeUpdate: async (model, attrs, options) => {},
@@ -45,6 +54,8 @@ module.exports = {
   // Fired after an `update` query.
   // afterUpdate: async (model, attrs, options) => {},
 
+  afterUpdate: async (model, attrs, options) => { triggerBuild() },
+
   // Before destroying a value.
   // Fired before a `delete` query.
   // beforeDestroy: async (model, attrs, options) => {},
@@ -52,4 +63,6 @@ module.exports = {
   // After destroying a value.
   // Fired after a `delete` query.
   // afterDestroy: async (model, attrs, options) => {}
+
+  afterDestroy: async (model, attrs, options) => { triggerBuild() },
 };

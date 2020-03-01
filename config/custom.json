@@ -1,3 +1,4 @@
 {
-  "myCustomConfiguration": "This configuration is accessible through strapi.config.myCustomConfiguration"
+  "myCustomConfiguration": "This configuration is accessible through strapi.config.myCustomConfiguration",
+  "gatsbyTriggerBuildURL": "https://api.netlify.com/build_hooks/5e5bfec70f8528b517454870"
 }
